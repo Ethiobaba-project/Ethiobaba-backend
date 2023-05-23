@@ -23,10 +23,10 @@ Route::get('/', function () {
         'houses'=>House::all()
     ]);
 });
-Route::get('/houses/{id}', function($id){
-    return view('house',[
-        'house'=>House::find($id)
-    ]);
+Route::get('/houses/{house}', function(House $house) {
+        return view('house',[
+            'house'=>$house
+        ]);
 });
 // Route::get('/hello', function () {
 //     return response('<h1>hello world!</h1>');

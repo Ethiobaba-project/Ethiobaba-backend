@@ -22,17 +22,19 @@
             },
         };
     </script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/js/adminlte.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/css/adminlte.min.css"> --}}
     <title>Ethiobaba | Find Your dream home & Cars</title>
 </head>
 
 <body class="">
     <nav class="top-0 left-0 right-0 flex justify-between items-center bg-gray-200 z-20">
-        <a href="index.html" class="flex items-center">
-          <img class="w-12 ml-4 mt-4" src="images/logo1.png" alt="Logo" class="logo">
-          <span class="text-xl font-bold mt-4 ml-4">Ethiobaba</span>
+        <a href="/" class="flex items-center">
+          <img class="w-12 ml-4 mt-4" src="{{asset('images/logo1.png') }}"alt="Logo" class="logo">
+          <span class="text-xl font-bold mt-2 ml-4">Ethiobaba</span>
         </a>
         <button id="toggleBtn" class="lg:hidden text-xl focus:outline-none  pr-10">&#9776;</button>
-        <ul id="menu" class="hidden lg:flex flex-wrap items-center space-x-6 mr-6 text-lg">
+        <ul id="menu" class="menu hidden lg:flex flex-wrap items-center space-x-6 mr-6 text-lg">
           <li>
             <a href="index.html" class="hover:text-laravel">
               Home
