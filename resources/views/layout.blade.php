@@ -10,6 +10,7 @@
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com/2.2.19/tailwind.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -24,29 +25,82 @@
     <title>Ethiobaba | Find Your dream home & Cars</title>
 </head>
 
-<body class="mb-48">
-    <nav class="flex justify-between items-center ">
-        <a href="index.html"><img class="ml-4 mt-2 w-20" src="images/logo1.png" alt="" class="logo" /></a>
-        <ul class="flex space-x-6 mr-6 text-lg">
-            <li>
-                <a href="register.html" class="hover:text-laravel"><i class="fa-solid fa-user-plus"></i> Register</a>
-            </li>
-            <li>
-                <a href="login.html" class="hover:text-laravel"><i class="fa-solid fa-arrow-right-to-bracket"></i>
-                    Login</a>
-            </li>
+<body class="">
+    <nav class="top-0 left-0 right-0 flex justify-between items-center bg-gray-200 z-20">
+        <a href="index.html" class="flex items-center">
+          <img class="w-12 ml-4 mt-4" src="images/logo1.png" alt="Logo" class="logo">
+          <span class="text-xl font-bold mt-4 ml-4">Ethiobaba</span>
+        </a>
+        <button id="toggleBtn" class="lg:hidden text-xl focus:outline-none  pr-10">&#9776;</button>
+        <ul id="menu" class="hidden lg:flex flex-wrap items-center space-x-6 mr-6 text-lg">
+          <li>
+            <a href="index.html" class="hover:text-laravel">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="house-for-sell.html" class="hover:text-laravel">
+              House for Sell
+            </a>
+          </li>
+          <li>
+            <a href="car-for-sell.html" class="hover:text-laravel">
+              Car for Sell
+            </a>
+          </li>
+          <li>
+            <a href="house-for-rent.html" class="hover:text-laravel">
+              House for Rent
+            </a>
+          </li>
+          <li>
+            <a href="car-for-rent.html" class="hover:text-laravel">
+              Car for Rent
+            </a>
+          </li>
+          <li>
+            <a href="c-to-c-delivery.html" class="hover:text-laravel">
+              C to C Delivery
+            </a>
+          </li>
+          <li>
+            <a href="books.html" class="hover:text-laravel">
+              Books
+            </a>
+          </li>
+          <li>
+            <a href="contact-us.html" class="hover:text-laravel">
+              Contact Us
+            </a>
+          </li>
+          <li>
+            <a href="register.html" class="hover:text-laravel">
+              <i class="fa-solid fa-user-plus"></i> Register
+            </a>
+          </li>
+          <li>
+            <a href="login.html" class="hover:text-laravel">
+              <i class="fa-solid fa-arrow-right-to-bracket"></i> Login
+            </a>
+          </li>
         </ul>
-    </nav>
+      </nav>
     <main>
         @yield('content')
     </main>
 
     <footer
-        class="fixed bottom-0 left-0 w-full flex items-center justify-start font-bold bg-laravel text-white h-24 mt-24 opacity-90 md:justify-center">
-        <p class="ml-2">Copyright &copy; 2022, All Rights reserved</p>
-
-        <a href="create.html" class="absolute top-1/3 right-10 bg-black text-white py-2 px-5">Post Job</a>
+        class="fixed bottom-0 left-0 w-full flex items-center justify-start font-bold bg-laravel text-white h-10 mt-24 opacity-90 md:justify-center">
+        <p class="ml-2">Copyright &copy; 2023, All Rights reserved</p>
     </footer>
+    <script>
+        const toggleBtn = document.getElementById('toggleBtn');
+        const menu = document.getElementById('menu');
+
+        toggleBtn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 
 </html>

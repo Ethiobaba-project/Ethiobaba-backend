@@ -1,5 +1,6 @@
 @extends('layout')
 @section('content')
+@include('partials._search')
     <a href="/houses/{{ $house['id'] }}">{{ $house['title'] }}</a>
     <p>Price = {{ $house['price'] }}</p>
     <p>Square feet = {{ $house['squer_feet'] }} meter square</p>
