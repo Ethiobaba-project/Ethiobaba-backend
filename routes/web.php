@@ -5,7 +5,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpFoundation\Response;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,6 +27,8 @@ Route::get('/houses/{house}', function(House $house) {
             'house'=>$house
         ]);
 });
+
+
 // Route::get('/hello', function () {
 //     return response('<h1>hello world!</h1>');
 // });
