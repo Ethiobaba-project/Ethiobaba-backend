@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="images/favicon.ico" />
+    <link rel="icon" href="{{asset('images/favicon.ico')}}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -29,7 +29,7 @@
 
 <body class="">
     <nav class="top-0 left-0 right-0 flex justify-between items-center bg-gray-200 z-20">
-        <a href="/" class="flex items-center">
+        <a href="/" class="flex items-center relative">
           <img class="w-12 ml-4 mt-4" src="{{asset('images/logo1.png') }}"alt="Logo" class="logo">
           <span class="text-xl font-bold mt-2 ml-4">Ethiobaba</span>
         </a>
