@@ -3,7 +3,7 @@
     @include('partials._search')
     <a href="/" class="inline-block text-black ml-4 mb-4"><i class="fa-solid fa-arrow-left"></i> Back
     </a>
-    <div class="bg-gray-100 py-6 px-4  lg:px-8">
+    <x-card>
         <div class="max-w-3xl mx-auto">
             <div class="grid  gap-4 md:grid-cols-2">
                 <div>
@@ -67,5 +67,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </x-card>
 @endsection
