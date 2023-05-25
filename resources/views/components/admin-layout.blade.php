@@ -5,7 +5,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ethiobaba</title>
+    <link rel="icon" href="{{asset('images/favicon.ico')}}" />
+    <title>Ethiobaba | Find Your dream home & Cars</title>
     <!-- Google Font: Source Sans Pro -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,7 +36,7 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="./admin.php?logout"> Logout </a>
+                    <a class="nav-link" href="#"> Logout </a>
                 </li>
             </ul>
         </nav>
@@ -48,12 +49,12 @@
                 <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu"
                     data-accordion="false">
                     <li class="nav-item">
-                        <a href="admin.html" class="nav-link active">
+                        <a href="/admin" class="nav-link active">
                             <i class="fas fa-edit"></i>
                             <p>Dashboard</p>
                         </a>
                     </li>
-                    <li class="nav-item menu-open">
+                    <li class="nav-item menu-open ">
                         <a href="#" class="nav-link active">
                             <i class="fas fa-tasks"></i>
                             <p>
@@ -63,12 +64,12 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="add-car.html" class="nav-link active">
+                                <a href="/cars/create" class="nav-link bg-info">
                                     <p>Add car</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="view-car.html" class="nav-link">
+                                <a href="/cars/show" class="nav-link bg-info">
                                     <p>View cars</p>
                                 </a>
                             </li>
@@ -85,12 +86,12 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="add-home.html" class="nav-link active">
+                                <a href="/houses/create" class="nav-link bg-info">
                                     <p>Add house</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="view-home.html" class="nav-link">
+                                <a href="/houses/show" class="nav-link bg-info">
                                     <p>View house</p>
                                 </a>
                             </li>
@@ -98,7 +99,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="updateAccount.html" class="nav-link active">
+                        <a href="#" class="nav-link active">
                             <i class="fas fa-edit"></i>
                             <p>Update Account</p>
                         </a>

@@ -19,12 +19,24 @@ use Symfony\Component\HttpFoundation\Response;
 //all house 
 Route::get('/', [HouseController::class, 'index']);
 
+//create new house
+Route::get('/houses/create', [HouseController::class, 'create']);
+
 //single house
 Route::get('/houses/{house}', [HouseController::class, 'show']);
+
 
 //admin test
 Route::get('/admin', function(){
     return view('admin.index');
+});
+
+//add home
+Route::get('/admin/add', function(){
+    return view('admin.add-house');
+});
+Route::get('/admin/show', function(){
+    return view('admin.view-house');
 });
 
 
