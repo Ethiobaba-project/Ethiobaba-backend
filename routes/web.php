@@ -16,10 +16,17 @@ use Symfony\Component\HttpFoundation\Response;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+//all house 
 Route::get('/', [HouseController::class, 'index']);
 
+//single house
 Route::get('/houses/{house}', [HouseController::class, 'show']);
+
+//admin test
+Route::get('/admin', function(){
+    return view('admin.index');
+});
+
 
 
 // Route::get('/hello', function () {

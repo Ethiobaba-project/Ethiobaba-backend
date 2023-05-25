@@ -1,11 +1,10 @@
-@extends('layout')
-@section('content')
+<x-layout>
     @include('partials._search')
     <a href="/" class="inline-block text-black ml-4 mb-4"><i class="fa-solid fa-arrow-left"></i> Back
     </a>
-    
-        <div class="mx-4">
-            <x-card class="bg-black">
+
+    <div class="mx-4">
+        <x-card class="bg-black">
             <div class="grid  gap-4 md:grid-cols-2">
                 <div>
                     <div>
@@ -32,7 +31,7 @@
                 <div>
                     <h3 class="text-2xl font-bold mb-4">{{ $house->title }}</h3>
                     <hr class="my-4">
-                    
+
                     <div class="bg-gray-200 py-2 px-4">
                         <h2 class="text-3xl font-bold">
                             ${{ $house->price }}
@@ -68,5 +67,5 @@
                 </div>
             </div>
         </x-card>
-        </div>
-@endsection
+    </div>
+</x-layout>
