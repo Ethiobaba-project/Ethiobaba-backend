@@ -3,8 +3,9 @@
     @include('partials._search')
     <a href="/" class="inline-block text-black ml-4 mb-4"><i class="fa-solid fa-arrow-left"></i> Back
     </a>
-    <x-card>
-        <div class="max-w-3xl mx-auto">
+    
+        <div class="mx-4">
+            <x-card class="bg-black">
             <div class="grid  gap-4 md:grid-cols-2">
                 <div>
                     <div>
@@ -66,6 +67,6 @@
                     </div>
                 </div>
             </div>
+        </x-card>
         </div>
-    </x-card>
 @endsection
