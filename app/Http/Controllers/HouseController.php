@@ -13,7 +13,9 @@ class HouseController extends Controller
      */
     public function index()
     {
-        //
+        return view('houses.index', [
+            'houses'=>House::all()
+        ]);
     }
 
     /**
@@ -37,7 +39,9 @@ class HouseController extends Controller
      */
     public function show(House $house)
     {
-        //
+        return view('houses.show',[
+            'house'=>$house
+        ]);
     }
 
     /**

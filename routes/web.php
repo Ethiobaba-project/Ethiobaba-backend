@@ -3,6 +3,7 @@
 use App\Models\House;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HouseController;
 use Symfony\Component\HttpFoundation\Response;
 
 /*
@@ -16,17 +17,9 @@ use Symfony\Component\HttpFoundation\Response;
 |
 */
 
-Route::get('/', function () {
-    return view('houses', [
-        'heading' => 'Latest Houses',
-        'houses'=>House::all()
-    ]);
-});
-Route::get('/houses/{house}', function(House $house) {
-        return view('house',[
-            'house'=>$house
-        ]);
-});
+Route::get('/', [HouseController::class, 'index']);
+
+Route::get('/houses/{house}', [HouseController::class, 'show']);
 
 
 // Route::get('/hello', function () {
