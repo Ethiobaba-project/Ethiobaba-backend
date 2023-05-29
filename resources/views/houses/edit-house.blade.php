@@ -17,7 +17,7 @@
                                         <div class="form-group">
                                             <label>Title</label>
                                             <input type="text" name="title" class="form-control"
-                                                placeholder="Title" value="{{ $house->title }}" required>
+                                                placeholder="Title" value="{{ $house->title }}" >
                                             @error('title')
                                                 <p class="text-danger small mt-1">{{ $message }}</p>
                                             @enderror
@@ -25,7 +25,7 @@
                                         <div class="form-group">
                                             <label>Number of bed rooms</label>
                                             <input type="number" name="no_of_bedrooms" class="form-control"
-                                                placeholder="{{ $house->no_of_bedrooms }}" required>
+                                                value="{{ $house->no_of_bedrooms }}" >
                                             @error('no_of_bedrooms')
                                                 <p class="text-danger small mt-1">{{ $message }}</p>
                                             @enderror
@@ -33,7 +33,7 @@
                                         <div class="form-group">
                                             <label>Number of Bath rooms</label>
                                             <input type="number" name="no_of_bathrooms" class="form-control"
-                                                placeholder="{{ $house->no_of_bathrooms }}" required>
+                                                value="{{ $house->no_of_bathrooms }}" >
                                             @error('no_of_bathrooms')
                                                 <p class="text-danger small mt-1">{{ $message }}</p>
                                             @enderror
@@ -41,7 +41,7 @@
                                         <div class="form-group">
                                             <label>Square Feet</label>
                                             <input type="number" name="squer_feet" class="form-control"
-                                                placeholder="{{ $house->squer_feet }}" required>
+                                                value="{{ $house->squer_feet }}" >
                                             @error('squer_feet')
                                                 <p class="text-danger small mt-1">{{ $message }}</p>
                                             @enderror
@@ -52,7 +52,7 @@
                                         <div class="form-group">
                                             <label>Price</label>
                                             <input type="number" step="0.01" name="price" class="form-control"
-                                                placeholder="Price" value="{{ $house->price }}" required>
+                                                placeholder="Price" value="{{ $house->price }}" >
                                             @error('Price')
                                                 <p class="text-danger small mt-1">{{ $message }}</p>
                                             @enderror
@@ -60,14 +60,14 @@
                                         <div class="form-group">
                                             <label>Location</label>
                                             <input type="text" step="0.01" name="location" class="form-control"
-                                                placeholder="location" value="{{ $house->location }}" required>
+                                                placeholder="location" value="{{ $house->location }}" >
                                             @error('location')
                                                 <p class="text-danger small mt-1">{{ $message }}</p>
                                             @enderror
                                         </div>
                                         <div class="form-group">
                                             <label>Description</label>
-                                            <textarea class="form-control" name="description" rows="4" placeholder="Enter about the Drug..." required>{{ $house->description }}</textarea>
+                                            <textarea class="form-control" name="description" rows="4" placeholder="Enter about the Drug..." >{{ $house->description }}</textarea>
                                             @error('description')
                                                 <p class="text-danger small mt-1">{{ $message }}</p>
                                             @enderror
@@ -76,7 +76,7 @@
                                             <div class="input-group">
                                                 <div class="custom-file">
                                                     <label for="exampleInputFile">Images</label>
-                                                    <input type="file" name="photo" required multiple
+                                                    <input type="file" name="photo"  multiple
                                                         class="form-control-file" id="exampleFormControlFile1">
                                                     <img src="{{ $house->photo ? asset('storage/' . $house->photo) : asset('/images/no-image.png') }}"
                                                     class="img-fluid mr-2 mb-2" style="width: 78px; height: auto;" alt="Product Image">

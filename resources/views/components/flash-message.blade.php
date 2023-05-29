@@ -1,6 +1,6 @@
 @if (session()->has('message'))
     <div x-data={show:true} x-init="setTimeout(()=> show=false, 3000)" x-show="show" 
-        class="alert alert-success w-25 mx-auto">
+        class="alert alert-success position-fixed top-0 start-50 translate-middle-x  text-white px-3 py-2" style="left: 50%; transform: translateX(-50%);">
        <p>
           {{ session('message') }}
        </p> 

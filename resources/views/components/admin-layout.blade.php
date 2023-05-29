@@ -109,6 +109,7 @@
                 </ul>
             </div>
         </aside>
+    <x-flash-message />
         {{ $slot }}
     </div>
 
@@ -129,7 +130,6 @@
             bsCustomFileInput.init();
         });
     </script>
-    <x-flash-message />
 </body>
 
 </html>

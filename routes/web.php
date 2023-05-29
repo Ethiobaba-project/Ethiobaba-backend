@@ -35,6 +35,13 @@ Route::get('/admin/show', [HouseController::class, 'show_house_admin']);
 // Show Edit Form
 Route::get('/admin/houses/{house}/edit', [HouseController::class, 'edit']);
 
+//Update house 
+Route::put('/admin/houses/{house}', [HouseController::class, 'update']);
+
+
+//delete house 
+Route::delete('/admin/houses/{house}', [HouseController::class, 'destroy']);
+
 
 
 
