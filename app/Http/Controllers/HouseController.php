@@ -40,13 +40,13 @@ class HouseController extends Controller
             'location' =>'required',
             'squer_feet' =>'required', 
             'no_of_bedrooms' =>'required', 
-            'no_of_bathrooms' =>'required', 
+            'no_of_bathrooms' =>'required',
             'description' => 'required'
         ]);
 
-        // if($request->hasFile('logo')) {
-        //     $formFields['logo'] = $request->file('logo')->store('logos', 'public');
-        // }
+        if($request->hasFile('photo')) {
+            $formFields['photo'] = $request->file('photo')->store('houses_photo', 'public');
+        }
 
         // $formFields['user_id'] = auth()->id();
 

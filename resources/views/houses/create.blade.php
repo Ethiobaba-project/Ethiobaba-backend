@@ -71,17 +71,15 @@
                                                 <p class="text-danger small mt-1">{{ $message }}</p>
                                             @enderror
                                         </div>
-                                        {{-- <div class="form-group">
-                                            <label for="exampleInputFile">Images</label>
+                                        <div class="form-group">
                                             <div class="input-group">
                                                 <div class="custom-file">
-                                                    <input type="file" name="photo" class="custom-file-input"
-                                                        value="{{ old('photo') }}" required>
-                                                    <label class="custom-file-label" for="exampleInputFile">Choose
-                                                        file</label>
+                                                    <label for="exampleInputFile">Images</label>
+                                                    <input type="file" name="photo" value="{{ old('photo') }}"
+                                                        required multiple class="form-control-file" id="exampleFormControlFile1">
                                                 </div>
                                             </div>
-                                        </div> --}}
+                                        </div>
                                     </div>
                                     <!-- /.col -->
 

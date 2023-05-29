@@ -37,52 +37,52 @@
         <button id="toggleBtn" class="lg:hidden text-xl focus:outline-none  pr-10">&#9776;</button>
         <ul id="menu" class="menu hidden lg:flex flex-wrap items-center space-x-6 mr-6 text-lg">
           <li>
-            <a href="index.html" class="hover:text-laravel">
+            <a href="/" class="hover:text-laravel">
               Home
             </a>
           </li>
           <li>
-            <a href="house-for-sell.html" class="hover:text-laravel">
+            <a href="/" class="hover:text-laravel">
               House for Sell
             </a>
           </li>
           <li>
-            <a href="car-for-sell.html" class="hover:text-laravel">
+            <a href="/" class="hover:text-laravel">
               Car for Sell
             </a>
           </li>
           <li>
-            <a href="house-for-rent.html" class="hover:text-laravel">
+            <a href="#" class="hover:text-laravel">
               House for Rent
             </a>
           </li>
           <li>
-            <a href="car-for-rent.html" class="hover:text-laravel">
+            <a href="#" class="hover:text-laravel">
               Car for Rent
             </a>
           </li>
           <li>
-            <a href="c-to-c-delivery.html" class="hover:text-laravel">
+            <a href="#" class="hover:text-laravel">
               C to C Delivery
             </a>
           </li>
           <li>
-            <a href="books.html" class="hover:text-laravel">
+            <a href="#" class="hover:text-laravel">
               Books
             </a>
           </li>
           <li>
-            <a href="contact-us.html" class="hover:text-laravel">
+            <a href="#" class="hover:text-laravel">
               Contact Us
             </a>
           </li>
           <li>
-            <a href="register.html" class="hover:text-laravel">
+            <a href="#" class="hover:text-laravel">
               <i class="fa-solid fa-user-plus"></i> Register
             </a>
           </li>
           <li>
-            <a href="login.html" class="hover:text-laravel">
+            <a href="#" class="hover:text-laravel">
               <i class="fa-solid fa-arrow-right-to-bracket"></i> Login
             </a>
           </li>
@@ -104,7 +104,7 @@
             menu.classList.toggle('hidden');
         });
     </script>
-    <x-flash-message />
+    
 </body>
 
 </html>

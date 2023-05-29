@@ -8,23 +8,23 @@
             <div class="grid  gap-4 md:grid-cols-2">
                 <div>
                     <div>
-                        <img src="{{ asset('images/home.jpg') }}" class="w-full" alt="Product Image">
+                        <img src="{{$house->photo ? asset('storage/' . $house->photo) : asset('/images/no-image.png')}}" class="w-full" alt="Product Image">
                     </div>
                     <div class="grid grid-cols-5 gap-2 mt-2">
                         <div>
-                            <img src="{{ asset('images/home.jpg') }}" alt="Product Image">
+                            <img src="{{$house->photo ? asset('storage/' . $house->photo) : asset('/images/no-image.png')}}" alt="Product Image">
                         </div>
                         <div>
                             <img src="{{ asset('images/no-image.png') }}" alt="Product Image">
                         </div>
                         <div>
-                            <img src="{{ asset('images/home.jpg') }}" alt="Product Image">
+                            <img src="{{$house->photo ? asset('storage/' . $house->photo) : asset('/images/no-image.png')}}" alt="Product Image">
                         </div>
                         <div>
-                            <img src="{{ asset('images/home.jpg') }}" alt="Product Image">
+                            <img src="{{$house->photo ? asset('storage/' . $house->photo) : asset('/images/no-image.png')}}" alt="Product Image">
                         </div>
                         <div class="col-span-1">
-                            <img src="{{ asset('images/home.jpg') }}" alt="Product Image">
+                            <img src="{{$house->photo ? asset('storage/' . $house->photo) : asset('/images/no-image.png')}}" alt="Product Image">
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 @props(['house'])
 <x-card >
     <div class="flex">
-        <img class="hidden w-48 mr-6 md:block" src="{{asset('images/home.jpg')}}" alt="" />
+        <img class="hidden w-48 mr-6 md:block" src="{{$house->photo ? asset('storage/' . $house->photo) : asset('/images/no-image.png')}}" alt="home image" />
         <div>
             <h3 class="text-2xl">
                 <a href="/houses/{{ $house->id }}">{{ $house->title }}</a>
