@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\House;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreHouseRequest;
 use App\Http\Requests\UpdateHouseRequest;
 
@@ -31,9 +32,26 @@ class HouseController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreHouseRequest $request)
+    public function store(Request $request)
     {
-        //
+        $formFields = $request->validate([
+            'title' => 'required',
+            'price' =>'required', 
+            'squer_feet' =>'required', 
+            'no_of_bedrooms' =>'required', 
+            'no_of_bathrooms' =>'required', 
+            'description' => 'required'
+        ]);
+
+        // if($request->hasFile('logo')) {
+        //     $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+        // }
+
+        // $formFields['user_id'] = auth()->id();
+
+        House::create($formFields);
+
+        return redirect('/')->with('message', 'Listing created successfully!');
     }
 
     /**

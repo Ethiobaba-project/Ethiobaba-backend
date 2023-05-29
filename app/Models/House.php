@@ -7,7 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class House extends Model
 {
+
+
     use HasFactory;
+
+    protected $fillable = ['title', 'price', 'squer_feet', 'no_of_bedrooms', 'no_of_bathrooms', 'description'];
 
     public function scopeFilter($query, array $filters) {
         if($filters['search'] ?? false) {

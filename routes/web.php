@@ -22,8 +22,14 @@ Route::get('/', [HouseController::class, 'index']);
 //create new house
 Route::get('/houses/create', [HouseController::class, 'create']);
 
+//add new house to database
+Route::post('/houses', [HouseController::class, 'store']);
+
 //single house
 Route::get('/houses/{house}', [HouseController::class, 'show']);
+
+
+
 
 
 //admin test
