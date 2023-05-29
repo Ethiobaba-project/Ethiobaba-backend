@@ -80,7 +80,7 @@ class HouseController extends Controller
      */
     public function edit(House $house)
     {
-        //
+        return view('houses.edit-house', ['house' => $house]);
     }
 
     /**

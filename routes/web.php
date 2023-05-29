@@ -32,6 +32,9 @@ Route::get('/houses/{house}', [HouseController::class, 'show']);
 //get all house on admin page
 Route::get('/admin/show', [HouseController::class, 'show_house_admin']);
 
+// Show Edit Form
+Route::get('/admin/houses/{house}/edit', [HouseController::class, 'edit']);
+
 
 
 

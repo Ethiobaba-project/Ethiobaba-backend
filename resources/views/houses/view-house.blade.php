@@ -34,7 +34,7 @@
                                                 <td>{{ $house->price }} Birr</td>
                                                 <td>{{ $house->squer_feet }} m<sup>2</td>
                                                 <td>{{ $house->location }}</td>
-                                                <td> <a href='#' class='btn btn-primary btn-sm'>view detail</a>
+                                                <td> <a href='/admin/houses/{{ $house->id }}/edit' class='btn btn-primary btn-sm'>edit</a>
                                                 </td>
 
                                             </tr>
