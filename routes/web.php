@@ -29,6 +29,9 @@ Route::post('/houses', [HouseController::class, 'store']);
 Route::get('/houses/{house}', [HouseController::class, 'show']);
 
 
+//get all house on admin page
+Route::get('/admin/show', [HouseController::class, 'show_house_admin']);
+
 
 
 
@@ -40,9 +43,6 @@ Route::get('/admin', function(){
 //add home
 Route::get('/admin/add', function(){
     return view('admin.add-house');
-});
-Route::get('/admin/show', function(){
-    return view('admin.view-house');
 });
 
 

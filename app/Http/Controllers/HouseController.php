@@ -37,6 +37,7 @@ class HouseController extends Controller
         $formFields = $request->validate([
             'title' => 'required',
             'price' =>'required', 
+            'location' =>'required',
             'squer_feet' =>'required', 
             'no_of_bedrooms' =>'required', 
             'no_of_bathrooms' =>'required', 
@@ -51,7 +52,7 @@ class HouseController extends Controller
 
         House::create($formFields);
 
-        return redirect('/')->with('message', 'Listing created successfully!');
+        return redirect('/admin/show')->with('message', 'House created successfully!');
     }
 
     /**
@@ -61,6 +62,16 @@ class HouseController extends Controller
     {
         return view('houses.show',[
             'house'=>$house
+        ]);
+    }
+
+    /**
+     * Display the specified resource for admin.
+     */
+    public function show_house_admin(House $houses)
+    {
+        return view('houses.view-house',[
+            'houses'=>House::all()
         ]);
     }
 

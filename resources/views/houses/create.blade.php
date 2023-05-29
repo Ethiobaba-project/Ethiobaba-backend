@@ -57,6 +57,14 @@
                                             @enderror
                                         </div>
                                         <div class="form-group">
+                                            <label>Location</label>
+                                            <input type="text" step="0.01" name="location" class="form-control"
+                                                placeholder="location" value="{{ old('location') }}" required>
+                                            @error('location')
+                                                <p class="text-danger small mt-1">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group">
                                             <label>Description</label>
                                             <textarea class="form-control" name="description" rows="4" placeholder="Enter about the Drug..." required>{{ old('description') }}</textarea>
                                             @error('description')

@@ -91,7 +91,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/houses/show" class="nav-link bg-info">
+                                <a href="/admin/show" class="nav-link bg-info">
                                     <p>View house</p>
                                 </a>
                             </li>
