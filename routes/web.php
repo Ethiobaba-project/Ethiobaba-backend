@@ -3,6 +3,7 @@
 use App\Models\House;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\HouseController;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -42,18 +43,33 @@ Route::put('/admin/houses/{house}', [HouseController::class, 'update']);
 //delete house 
 Route::delete('/admin/houses/{house}', [HouseController::class, 'destroy']);
 
+// Show Register/Create Form
+Route::get('/register', [UserController::class, 'create'])->middleware('guest');
+
+// Create New User
+Route::post('/users', [UserController::class, 'store']);
+
+// Log User Out
+Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
+
+// Show Login Form
+Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
+
+// Log In User
+Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
 
 
-//admin test
-Route::get('/admin', function(){
-    return view('admin.index');
-});
 
-//add home
-Route::get('/admin/add', function(){
-    return view('admin.add-house');
-});
+// //admin test
+// Route::get('/admin', function(){
+//     return view('admin.index');
+// });
+
+// //add home
+// Route::get('/admin/add', function(){
+//     return view('admin.add-house');
+// });
 
 
 
