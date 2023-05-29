@@ -71,7 +71,7 @@ class HouseController extends Controller
     public function show_house_admin(House $houses)
     {
         return view('houses.view-house',[
-            'houses'=>House::all()
+            'houses'=>House::latest()->filter(request(['search']))->paginate(6)
         ]);
     }
 

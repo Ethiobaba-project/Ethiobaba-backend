@@ -4,7 +4,6 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
-                        <x-flash-message />
                         <div class="card ">
                             <div class="card-header bg-primary ">
                                 <h3 class="card-title">House List</h3>
@@ -28,7 +27,7 @@
                                     @foreach ($houses as $house)
                                         <tbody>
                                             <tr>
-                                                <td>{{ $house->id }}</td>
+                                                <td>{{ ($house->id)+1000 }}</td>
                                                 <td>{{ $house->title }}</td>
                                                 <td>{{ $house->no_of_bathrooms }}</td>
                                                 <td>{{ $house->no_of_bedrooms }}</td>
@@ -45,8 +44,14 @@
                             </div>
                         </div>
                     </div>
+                    <div class="mt-6 p-4">
+                        {{ $houses->links('pagination::bootstrap-4') }}
+                    </div>
                 </div>
+                
             </div>
         </div>
+        
     </div>
+    
 </x-admin-layout>
