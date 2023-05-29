@@ -4,6 +4,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
+                        <x-flash-message />
                         <div class="card ">
                             <div class="card-header bg-primary ">
                                 <h3 class="card-title">House List</h3>
@@ -34,8 +35,8 @@
                                                 <td>{{ $house->price }} Birr</td>
                                                 <td>{{ $house->squer_feet }} m<sup>2</td>
                                                 <td>{{ $house->location }}</td>
-                                                <td> <a href='#'
-                                                        class='btn btn-primary btn-sm'>view detail</a></td>
+                                                <td> <a href='#' class='btn btn-primary btn-sm'>view detail</a>
+                                                </td>
 
                                             </tr>
                                         </tbody>

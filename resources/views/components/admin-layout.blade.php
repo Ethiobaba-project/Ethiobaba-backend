@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="{{asset('images/favicon.ico')}}" />
+    <link rel="icon" href="{{ asset('images/favicon.ico') }}" />
     <title>Ethiobaba | Find Your dream home & Cars</title>
     <!-- Google Font: Source Sans Pro -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="./overlayScrollbars/css/OverlayScrollbars.min.css" />
     <!-- DataTables -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap4.min.css" />
+    <script src="//unpkg.com/alpinejs" defer></script>
+
 </head>
 
 <body class="layout-fixed" style="height: auto">
@@ -107,7 +109,7 @@
                 </ul>
             </div>
         </aside>
-        {{$slot}}
+        {{ $slot }}
     </div>
 
     <!-- jQuery -->
@@ -127,6 +129,7 @@
             bsCustomFileInput.init();
         });
     </script>
+    <x-flash-message />
 </body>
 
 </html>
