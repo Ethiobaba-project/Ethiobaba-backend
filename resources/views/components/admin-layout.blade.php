@@ -66,12 +66,12 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="/cars/create" class="nav-link bg-info">
+                                <a href="/admin/cars/create" class="nav-link bg-info">
                                     <p>Add car</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/cars/show" class="nav-link bg-info">
+                                <a href="/admin/cars/show" class="nav-link bg-info">
                                     <p>View cars</p>
                                 </a>
                             </li>
@@ -88,7 +88,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="/houses/create" class="nav-link bg-info">
+                                <a href="/admin/houses/create" class="nav-link bg-info">
                                     <p>Add house</p>
                                 </a>
                             </li>

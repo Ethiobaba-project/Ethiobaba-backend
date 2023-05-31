@@ -21,27 +21,27 @@ use Symfony\Component\HttpFoundation\Response;
 Route::get('/', [HouseController::class, 'index']);
 
 //create new house
-Route::get('/houses/create', [HouseController::class, 'create']);
+Route::get('/admin/houses/create', [HouseController::class, 'create'])->middleware('auth');
 
 //add new house to database
-Route::post('/houses', [HouseController::class, 'store']);
+Route::post('/houses', [HouseController::class, 'store'])->middleware('auth');
 
 //single house
 Route::get('/houses/{house}', [HouseController::class, 'show']);
 
 
 //get all house on admin page
-Route::get('/admin/show', [HouseController::class, 'show_house_admin']);
+Route::get('/admin/show', [HouseController::class, 'show_house_admin'])->middleware('auth');
 
 // Show Edit Form
-Route::get('/admin/houses/{house}/edit', [HouseController::class, 'edit']);
+Route::get('/admin/houses/{house}/edit', [HouseController::class, 'edit'])->middleware('auth');
 
 //Update house 
-Route::put('/admin/houses/{house}', [HouseController::class, 'update']);
+Route::put('/admin/houses/{house}', [HouseController::class, 'update'])->middleware('auth');
 
 
 //delete house 
-Route::delete('/admin/houses/{house}', [HouseController::class, 'destroy']);
+Route::delete('/admin/houses/{house}', [HouseController::class, 'destroy'])->middleware('auth');;
 
 // Show Register/Create Form
 Route::get('/register', [UserController::class, 'create'])->middleware('guest');
@@ -61,10 +61,10 @@ Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
 
 
-// //admin test
-// Route::get('/admin', function(){
-//     return view('admin.index');
-// });
+//admin test
+Route::get('/admin', function(){
+    return view('admin.index');
+})->middleware('auth');
 
 // //add home
 // Route::get('/admin/add', function(){
