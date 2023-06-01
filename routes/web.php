@@ -32,7 +32,7 @@ Route::get('/admin/houses/create', [HouseController::class, 'create'])->middlewa
 
 
 //add new house to database
-Route::post('/houses', [HouseController::class, 'store'])->middleware('auth');
+Route::post('/admin/houses', [HouseController::class, 'store'])->middleware('auth');
 
 //get all house on admin page
 Route::get('/admin/show', [HouseController::class, 'show_house_admin'])->middleware('auth');
@@ -50,6 +50,7 @@ Route::delete('/admin/houses/{house}', [HouseController::class, 'destroy'])->mid
 //for car
 //all cars 
 Route::get('/cars', [CarController::class, 'index']);
+Route::get('/cars/{car}', [CarController::class, 'show']);
 Route::get('/admin/cars/create', [CarController::class, 'create'])->middleware('auth');
 Route::post('/cars/store', [CarController::class, 'store']);
 Route::get('/admin/cars/show', [CarController::class, 'show_car_admin'])->middleware('auth');

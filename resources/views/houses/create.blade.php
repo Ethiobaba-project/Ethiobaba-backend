@@ -9,7 +9,7 @@
                             <h3 class="card-title">Add new Home for sell </h3>
                         </div>
                         <div class="card-body ">
-                            <form method="POST" enctype="multipart/form-data" action="/houses">
+                            <form method="POST" enctype="multipart/form-data" action="/admin/houses">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6">

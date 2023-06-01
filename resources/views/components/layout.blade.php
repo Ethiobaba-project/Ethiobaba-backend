@@ -43,15 +43,15 @@
         <li class="dropdown">
             <a href="#" class="hover:text-laravel" data-toggle="dropdown">House</a>
             <ul class="dropdown-menu">
-                <li><a href="/" class="dropdown-item">For Sale</a></li>
-                <li><a href="/" class="dropdown-item">For Rent</a></li>
+                <li><a href="/houses" class="dropdown-item">For Sale</a></li>
+                <li><a href="/houses" class="dropdown-item">For Rent</a></li>
             </ul>
         </li>
         <li class="dropdown">
             <a href="#" class="hover:text-laravel" data-toggle="dropdown">Car</a>
             <ul class="dropdown-menu">
-                <li><a href="/" class="dropdown-item">For Sale</a></li>
-                <li><a href="/" class="dropdown-item">For Rent</a></li>
+                <li><a href="/cars" class="dropdown-item">For Sale</a></li>
+                <li><a href="/cars" class="dropdown-item">For Rent</a></li>
             </ul>
         </li>
         <li>

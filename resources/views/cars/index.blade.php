@@ -9,7 +9,7 @@
         <div class="lg:grid lg:grid-cols-2 gap-4 space-y-4 md:space-y-0 mx-4">
             @unless (count($cars) == 0)
                 @foreach ($cars as $car)
-                    <x-house-card :car="$car" />
+                    <x-car-card :car="$car" />
                 @endforeach
             @else
                 <p>There are no cars available.</p>

@@ -122,7 +122,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputFile">Images</label>
-                                            <input type="file" name="photo[]" value="{{ old('photo') }}" required
+                                            <input type="file"  name="photo[]" value="{{ old('photo') }}" required
                                                 multiple class="form-control-file" id="exampleFormControlFile1">
                                             @error('photo')
                                                 <p class="text-danger small mt-1">{{ $message }}</p>
