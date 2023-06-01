@@ -37,8 +37,20 @@
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
+                <li class="nav-item rounded mr-2">
+                    @auth
+                    <span class="font-bold text-uppercase">
+                        <i class="fas fa-user"></i> Welcome {{ auth()->user()->name }}
+                    </span>
+                @endauth
+                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"> Logout </a>
+                    <form class="hover:text-laravel" method="POST" action="/logout">
+                        @csrf
+                        <button type="submit">
+                             Logout 
+                        </button>
+                    </form>
                 </li>
             </ul>
         </nav>

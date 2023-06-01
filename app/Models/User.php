@@ -81,4 +81,9 @@ class User extends Authenticatable
     {
         return self::where('is_super_admin', 1)->count();
     }
+
+    // Relationship With House
+    public function houses() {
+        return $this->hasMany(House::class, 'user_id');
+    }
 }

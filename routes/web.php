@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CarController;
 use App\Models\House;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,15 +21,18 @@ use Symfony\Component\HttpFoundation\Response;
 //all house 
 Route::get('/', [HouseController::class, 'index']);
 
-//create new house
-Route::get('/admin/houses/create', [HouseController::class, 'create'])->middleware('auth');
-
-//add new house to database
-Route::post('/houses', [HouseController::class, 'store'])->middleware('auth');
-
 //single house
 Route::get('/houses/{house}', [HouseController::class, 'show']);
 
+//show admin page
+Route::get('/admin', [HouseController::class, 'adminPage'])->middleware('auth');
+
+//create new house
+Route::get('/admin/houses/create', [HouseController::class, 'create'])->middleware('auth');
+
+
+//add new house to database
+Route::post('/houses', [HouseController::class, 'store'])->middleware('auth');
 
 //get all house on admin page
 Route::get('/admin/show', [HouseController::class, 'show_house_admin'])->middleware('auth');
@@ -39,11 +43,21 @@ Route::get('/admin/houses/{house}/edit', [HouseController::class, 'edit'])->midd
 //Update house 
 Route::put('/admin/houses/{house}', [HouseController::class, 'update'])->middleware('auth');
 
-
 //delete house 
-Route::delete('/admin/houses/{house}', [HouseController::class, 'destroy'])->middleware('auth');;
+Route::delete('/admin/houses/{house}', [HouseController::class, 'destroy'])->middleware('auth');
 
-// Show Register/Create Form
+
+//for car
+//all cars 
+Route::get('/cars', [CarController::class, 'index']);
+Route::get('/admin/cars/create', [CarController::class, 'create'])->middleware('auth');
+Route::post('/cars', [CarController::class, 'store'])->middleware('auth');
+Route::get('/admin/cars/show', [CarController::class, 'show_car_admin'])->middleware('auth');
+Route::get('/admin/cars/{car}/edit', [CarController::class, 'edit'])->middleware('auth');
+Route::put('/admin/cars/{car}', [CarController::class, 'update'])->middleware('auth');
+Route::delete('/admin/cars/{car}', [CarController::class, 'destroy'])->middleware('auth');
+
+//show registration form
 Route::get('/register', [UserController::class, 'create'])->middleware('guest');
 
 // Create New User
@@ -62,9 +76,9 @@ Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
 
 //admin test
-Route::get('/admin', function(){
-    return view('admin.index');
-})->middleware('auth');
+// Route::get('/admin', function () {
+//     return view('admin.index');
+// })->middleware('auth');
 
 // //add home
 // Route::get('/admin/add', function(){

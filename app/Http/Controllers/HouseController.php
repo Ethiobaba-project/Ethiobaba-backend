@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\House;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreHouseRequest;
 use App\Http\Requests\UpdateHouseRequest;
+use Symfony\Component\HttpFoundation\Response;
 
 class HouseController extends Controller
 {
@@ -24,8 +26,22 @@ class HouseController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+
+    public function adminPage()
+    {
+
+        if (Auth::user()->is_super_admin != 1) {
+            abort(403);
+        }
+        return view('admin.index');
+    }
+
+
     public function create()
     {
+        if (Auth::user()->is_super_admin != 1) {
+            abort(403);
+        }
         return view('houses.create');
     }
 
@@ -34,6 +50,9 @@ class HouseController extends Controller
      */
     public function store(Request $request)
     {
+        if (Auth::user()->is_super_admin != 1) {
+            abort(403);
+        }
         $formFields = $request->validate([
             'title' => 'required',
             'price' => 'required',
@@ -48,7 +67,7 @@ class HouseController extends Controller
             $formFields['photo'] = $request->file('photo')->store('houses_photo', 'public');
         }
 
-        // $formFields['user_id'] = auth()->id();
+        $formFields['user_id'] = auth()->id();
 
         House::create($formFields);
 
@@ -70,6 +89,10 @@ class HouseController extends Controller
      */
     public function show_house_admin(House $houses)
     {
+        if (Auth::user()->is_super_admin != 1) {
+            abort(403);
+        }
+
         return view('houses.view-house', [
             'houses' => House::latest()->filter(request(['search']))->paginate(5)
         ]);
@@ -80,6 +103,9 @@ class HouseController extends Controller
      */
     public function edit(House $house)
     {
+        if (Auth::user()->is_super_admin != 1) {
+            abort(403);
+        }
         return view('houses.edit-house', ['house' => $house]);
     }
 
@@ -92,6 +118,9 @@ class HouseController extends Controller
         // if($listing->user_id != auth()->id()) {
         //     abort(403, 'Unauthorized Action');
         // }
+        if (Auth::user()->is_super_admin != 1) {
+            abort(403);
+        }
 
         $formFields = $request->validate([
             'title' => 'required',
@@ -121,13 +150,14 @@ class HouseController extends Controller
         // if($listing->user_id != auth()->id()) {
         //     abort(403, 'Unauthorized Action');
         // }
-        
-        if($house->photo && Storage::disk('public')->exists($house->photo)) {
+        if (Auth::user()->is_super_admin != 1) {
+            abort(403);
+        }
+
+        if ($house->photo && Storage::disk('public')->exists($house->photo)) {
             Storage::disk('public')->delete($house->photo);
         }
         $house->delete();
         return redirect('/admin/show')->with('message', 'house deleted successfully');
-    
-
     }
 }

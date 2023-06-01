@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use LDAP\Result;
 use App\Models\Car;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreCarRequest;
 use App\Http\Requests\UpdateCarRequest;
 
@@ -13,7 +15,10 @@ class CarController extends Controller
      */
     public function index()
     {
-        //
+
+        return view('cars.index', [
+            'cars' => Car::latest()->filter(request(['search']))->paginate(6)
+        ]);
     }
 
     /**
@@ -21,7 +26,10 @@ class CarController extends Controller
      */
     public function create()
     {
-        //
+        if (Auth::user()->is_super_admin != 1) {
+            abort(403);
+        }
+        return view('cars.create');
     }
 
     /**
@@ -38,6 +46,20 @@ class CarController extends Controller
     public function show(Car $car)
     {
         //
+    }
+
+     /**
+     * Display the specified resource for admin.
+     */
+    public function show_car_admin(Car $cars)
+    {
+        if (Auth::user()->is_super_admin != 1) {
+            abort(403);
+        }
+
+        return view('cars.view-car', [
+            'cars' => Car::latest()->filter(request(['search']))->paginate(5)
+        ]);
     }
 
     /**
