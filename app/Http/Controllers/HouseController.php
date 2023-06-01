@@ -50,6 +50,7 @@ class HouseController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
         if (Auth::user()->is_super_admin != 1) {
             abort(403);
         }

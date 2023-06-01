@@ -76,7 +76,8 @@
                                                 <div class="custom-file">
                                                     <label for="exampleInputFile">Images</label>
                                                     <input type="file" name="photo" value="{{ old('photo') }}"
-                                                        required multiple class="form-control-file" id="exampleFormControlFile1">
+                                                        required multiple class="form-control-file"
+                                                        id="exampleFormControlFile1">
                                                 </div>
                                             </div>
                                         </div>

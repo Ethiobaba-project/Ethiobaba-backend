@@ -51,7 +51,7 @@ Route::delete('/admin/houses/{house}', [HouseController::class, 'destroy'])->mid
 //all cars 
 Route::get('/cars', [CarController::class, 'index']);
 Route::get('/admin/cars/create', [CarController::class, 'create'])->middleware('auth');
-Route::post('/cars', [CarController::class, 'store'])->middleware('auth');
+Route::post('/cars/store', [CarController::class, 'store']);
 Route::get('/admin/cars/show', [CarController::class, 'show_car_admin'])->middleware('auth');
 Route::get('/admin/cars/{car}/edit', [CarController::class, 'edit'])->middleware('auth');
 Route::put('/admin/cars/{car}', [CarController::class, 'update'])->middleware('auth');
