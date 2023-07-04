@@ -8,8 +8,8 @@
                              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-medkit"></i></span>
 
                              <div class="info-box-content">
-                                 <span class="info-box-text">Add cars</span>
-                                 <span class="info-box-number"> 1 </span>
+                                 <span class="info-box-text">Cars</span>
+                                 <span class="info-box-number">{{$carCount}}</span>
                              </div>
                              <!-- /.info-box-content -->
                          </div>
@@ -54,8 +54,8 @@
                              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-medkit"></i></span>
 
                              <div class="info-box-content">
-                                 <span class="info-box-text">Add house</span>
-                                 <span class="info-box-number"> 1 </span>
+                                 <span class="info-box-text">Houses</span>
+                                 <span class="info-box-number">{{$houseCount}} </span>
                              </div>
                              <!-- /.info-box-content -->
                          </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Car;
 use App\Models\House;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -29,11 +30,14 @@ class HouseController extends Controller
 
     public function adminPage()
     {
-
+        $car = Car::all();
+        $house = House::all();
+        $houseCount = $house->count();
+        $carCount = $car->count();
         if (Auth::user()->is_super_admin != 1) {
             abort(403);
         }
-        return view('admin.index');
+        return view('admin.index', ['carCount'=>$carCount, 'houseCount'=>$houseCount]);
     }
 
 
