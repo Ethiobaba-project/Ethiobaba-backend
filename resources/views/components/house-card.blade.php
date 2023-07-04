@@ -1,18 +1,19 @@
 @props(['house'])
-<x-card >
-    <div class="flex">
-        <img class="hidden w-48 mr-6 md:block" src="{{$house->photo ? asset('storage/' . $house->photo) : asset('/images/no-image.png')}}" alt="home image" />
-        <div>
-            <h3 class="text-2xl">
-                <a href="/houses/{{ $house->id }}">{{ $house->title }}</a>
-            </h3>
-            <div class="text-xl font-bold mb-4">Price = {{ $house->price }} Birr</div>
-            <div class="text-xl font-bold mb-4">Square feet = {{ $house->squer_feet }} m<sup>2</sup></div>
-            <div class="text-lg mt-4">
-                <i class="fa-solid fa-location-dot"></i> {{ $house->location }}
-            </div>
+<x-card>
+    <!-- Product image-->
+    <img class="card-img-top" src="{{$house->photo ? asset('storage/' . $house->photo) : asset('/images/no-image.png')}}" alt="..." />
+    <!-- Product details-->
+    <div class="card-body p-4">
+        <div class="text-center">
+            <!-- Product name-->
+            <h5 class="fw-bolder">{{ $house->title }}</h5>
+            <!-- Product price-->
+            {{ $house->price }} Birr
         </div>
     </div>
-
+    <!-- Product actions-->
+    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/houses/{{ $house->id }}">View
+                Detial</a></div>
+    </div>
 </x-card>
- 

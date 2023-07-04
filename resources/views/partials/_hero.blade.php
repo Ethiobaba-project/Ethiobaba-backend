@@ -1,18 +1,15 @@
    <!-- Hero -->
-   <section class="relative h-72 bg-laravel flex flex-col justify-center align-center text-center space-y-4 mb-4 ">
-       <div class="absolute top-0 left-0 w-full h-full opacity-10 bg-no-repeat bg-center"></div>
 
-       <div class="z-10">
-           <h1 class="text-6xl font-bold uppercase text-white">
-               Ethio<span class="text-black">baba</span>
-           </h1>
-           <p class="text-2xl text-gray-200 font-bold my-4">
-               Find your dream homes & cars
-           </p>
-           <div>
-               <a href="/register"
-                   class="inline-block border-2 border-white text-white py-2 px-4 rounded-xl uppercase mt-2 hover:text-black hover:border-black">Sign
-                   up</a>
+   <header class="bg-danger py-5">
+       <div class="container px-4 px-lg-5 my-5">
+           <div class="text-center text-white">
+               <h1 class="display-4 fw-bolder">Ethio<span class="text-black">baba</span></h1>
+               <p class="lead fw-normal text-white-50 mb-0">Find your dream homes & cars</p>
+               <div>
+                <a href="/register" class="btn  border-2 border-white btn-primary mt-2">Sign up</a>
+            </div>
            </div>
+           
        </div>
-   </section>
+   </header>
+ 

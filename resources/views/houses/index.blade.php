@@ -6,14 +6,16 @@
             @include('partials._hero')
         @endif
         @include('partials._search')
-        <div class="lg:grid lg:grid-cols-2 gap-4 space-y-4 md:space-y-0 mx-4">
-            @unless (count($houses) == 0)
-                @foreach ($houses as $house)
-                    <x-house-card :house="$house" />
-                @endforeach
-            @else
-                <p>There are no houses available.</p>
-            @endunless
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                @unless (count($houses) == 0)
+                    @foreach ($houses as $house)
+                        <x-house-card :house="$house" />
+                    @endforeach
+                @else
+                    <p>There are no houses available.</p>
+                @endunless
+            </div>
         </div>
         <div class="mt-6 p-4">
             {{ $houses->links() }}

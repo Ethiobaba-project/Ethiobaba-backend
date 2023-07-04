@@ -1,3 +1,5 @@
-<div {{$attributes->merge(['class' => 'bg-gray-50 border border-gray-200 rounded p-6'])}}>
-    {{$slot}}
+<div class="col mb-5">
+<div class="card h-100">
+     {{ $slot }}
+ </div>
 </div>
