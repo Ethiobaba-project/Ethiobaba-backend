@@ -51,13 +51,13 @@ class CarController extends Controller
             'body_type' => 'required',
             'fuel_type' => 'required',
             'transmission' => 'required',
-            'location'=>'required',
+            'location' => 'required',
             'description' => 'nullable|required',
         ]);
         // $formFields['user_id'] = auth()->id();
         // Car::create($formData);
 
-        
+
 
 
         // Create a new Car instance and save it
@@ -95,10 +95,12 @@ class CarController extends Controller
      */
     public function show(Car $car)
     {
-        //
+        return view('cars.show', [
+            'car' => $car
+        ]);
     }
 
-     /**
+    /**
      * Display the specified resource for admin.
      */
     public function show_car_admin(Car $cars)
