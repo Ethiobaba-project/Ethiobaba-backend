@@ -9,7 +9,7 @@
 
                              <div class="info-box-content">
                                  <span class="info-box-text">Cars</span>
-                                 <span class="info-box-number">{{$carCount}}</span>
+                                 <span class="info-box-number">0</span>
                              </div>
                              <!-- /.info-box-content -->
                          </div>
@@ -55,7 +55,7 @@
 
                              <div class="info-box-content">
                                  <span class="info-box-text">Houses</span>
-                                 <span class="info-box-number">{{$houseCount}} </span>
+                                 <span class="info-box-number">0 </span>
                              </div>
                              <!-- /.info-box-content -->
                          </div>

@@ -8,7 +8,8 @@
             <!-- Product name-->
             <h5 class="fw-bolder">{{ $house->title }}</h5>
             <!-- Product price-->
-            {{ $house->price }} Birr
+            <h6>{{ $house->price }} Birr</h6>
+            <h6> <i class="bi bi-geo-alt"></i>{{ $house->location }}</h6>
         </div>
     </div>
     <!-- Product actions-->
