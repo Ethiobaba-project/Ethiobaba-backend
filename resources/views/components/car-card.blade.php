@@ -1,18 +1,21 @@
 @props(['car'])
-<x-card >
-    <div class="flex">
-        <img class="hidden w-48 mr-6 md:block" src="{{$car->photo ? asset('storage/' . $car->photo) : asset('/images/no-image.png')}}" alt="home image" />
-        <div>
-            <h3 class="text-2xl">
-                <a href="/cars/{{ $car->id }}">{{ $car->model }}</a>
-            </h3>
-            <div class="text-xl font-bold ">Price = {{ $car->price }} Birr</div>
-            <div class="text-xl font-bold ">year = {{ $car->year }} </div>
-            <div class="text-xl font-bold ">manufacturer = {{ $car->manufacturer }} </div>
-            <div class="text-lg mt-4">
-                <i class="fa-solid fa-location-dot"></i> {{ $car->location }}
-            </div>
+<x-card>
+    <!-- Product image-->
+    <img class="card-img-top" src="{{ $car->photo ? asset('storage/' . $car->photo) : asset('/images/no-image.png') }}"
+        alt="Car Image" />
+    <!-- Product details-->
+    <div class="card-body p-4">
+        <div class="text-center">
+            <!-- Product name-->
+            <h5 class="fw-bolder">{{ $car->model }}</h5>
+            <!-- Product price-->
+            <h6>{{ $car->price }} Birr</h6>
+            <h6> <i class="bi bi-geo-alt"></i>{{ $car->location }}</h6>
         </div>
     </div>
-
+    <!-- Product actions-->
+    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/cars/{{ $car->id }}">View
+                Detial</a></div>
+    </div>
 </x-card>

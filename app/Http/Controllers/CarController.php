@@ -19,7 +19,7 @@ class CarController extends Controller
     {
 
         return view('cars.index', [
-            'cars' => Car::latest()->filter(request(['search']))->paginate(6)
+            'cars' => Car::latest()->filter(request(['search']))->paginate(2)
         ]);
     }
 
@@ -108,7 +108,7 @@ class CarController extends Controller
         }
 
         return view('cars.view-car', [
-            'cars' => Car::latest()->filter(request(['search']))->paginate(5)
+            'cars' => Car::latest()->filter(request(['search']))->paginate(6)
         ]);
     }
 

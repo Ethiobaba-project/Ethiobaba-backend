@@ -2,7 +2,6 @@
     <x-card class="p-10 max-w-lg mx-auto mt-24 border border-gray-200">
         <div class="row">
             <div class="col-md-4">
-
             </div>
             <div class="col-md-4">
                 <header class="text-center mb-6">
@@ -60,8 +59,6 @@
             </div>
 
         </div>
-
-
         <div class="text-center mt-8">
             <p>Already have an account? <a href="/login" class="text-primary">Login</a></p>
         </div>

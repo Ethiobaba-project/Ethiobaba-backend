@@ -1,7 +1,8 @@
 @props(['house'])
 <x-card>
     <!-- Product image-->
-    <img class="card-img-top" src="{{$house->photo ? asset('storage/' . $house->photo) : asset('/images/no-image.png')}}" alt="..." />
+    <img class="card-img-top"
+        src="{{ $house->photo ? asset('storage/' . $house->photo) : asset('/images/no-image.png') }}" alt="..." />
     <!-- Product details-->
     <div class="card-body p-4">
         <div class="text-center">
