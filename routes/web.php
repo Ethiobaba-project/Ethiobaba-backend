@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\HomePageController;
 use App\Models\House;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HouseController;
+use App\Models\HomePage;
 use Symfony\Component\HttpFoundation\Response;
 
 /*
@@ -19,7 +21,7 @@ use Symfony\Component\HttpFoundation\Response;
 |
 */
 //all house 
-Route::get('/', [HouseController::class, 'index']);
+Route::get('/', [HomePageController::class, 'index']);
 
 //single house
 Route::get('/houses/{house}', [HouseController::class, 'show']);
@@ -45,7 +47,8 @@ Route::put('/admin/houses/{house}', [HouseController::class, 'update'])->middlew
 
 //delete house 
 Route::delete('/admin/houses/{house}', [HouseController::class, 'destroy'])->middleware('auth');
-
+//for house
+Route::get('/houses', [HouseController::class, 'index']);
 
 //for car
 //all cars 
