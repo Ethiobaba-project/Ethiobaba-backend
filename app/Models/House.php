@@ -23,8 +23,11 @@ class House extends Model
     }
 
      // Relationship To User
-     public function user() {
+    public function user() {
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    public function images() {
+        return $this->hasMany(HouseImages::class);
+    }
 }

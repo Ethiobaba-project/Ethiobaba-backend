@@ -34,5 +34,9 @@ class Car extends Model
         return $this->hasMany(CarImage::class);
     }
 
+    public function user() {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
     use HasFactory;
 }

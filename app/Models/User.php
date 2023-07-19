@@ -86,4 +86,12 @@ class User extends Authenticatable
     public function houses() {
         return $this->hasMany(House::class, 'user_id');
     }
+
+    public function car() {
+        return $this->hasMany(Car::class);
+    }
+
+    public function book() {
+        return $this->hasMany(Book::class);
+    }
 }
