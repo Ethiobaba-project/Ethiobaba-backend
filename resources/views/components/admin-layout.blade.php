@@ -112,6 +112,28 @@
                         </ul>
                     </li>
 
+                    <li class="nav-item menu-open">
+                        <a href="#" class="nav-link active">
+                            <i class="fas fa-tasks"></i>
+                            <p>
+                                Manage Books
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/admin/houses/create" class="nav-link bg-info">
+                                    <p>Add Book</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/show" class="nav-link bg-info">
+                                    <p>View book</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
                     <li class="nav-item">
                         <a href="#" class="nav-link active">
                             <i class="fas fa-edit"></i>
