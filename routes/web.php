@@ -49,7 +49,11 @@ Route::middleware(['auth'])->group(function(){
     // admin book routes
 
     Route::get('/admin/books/create', [BookController::class, 'create']) ->name('admin_create_book');
+    Route::get('/admin/books',[BookController::class, 'show_book_admin'])->name('admin_show_book');
     Route::post('/admin/books',[BookController::class, 'store']) ->name('admin_store_book');
+    Route::get('/admin/books/{book}/edit',[BookController::class, 'edit'])->name("admin_edit_book");
+    Route::put('/admin/books/{book}',[BookController::class, 'update'])->name("admin_update_book");
+    Route::delete('/admin/books/{book}',[BookController::class, 'destroy'])->name('admin_delete_book');
 
 });
 //show registration form

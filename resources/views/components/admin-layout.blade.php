@@ -127,7 +127,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/show" class="nav-link bg-info">
+                                <a href="{{ route("admin_show_book") }}" class="nav-link bg-info">
                                     <p>View book</p>
                                 </a>
                             </li>
