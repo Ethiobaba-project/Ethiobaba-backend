@@ -5,6 +5,7 @@ use App\Http\Controllers\HomePageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HouseController;
+use App\Http\Controllers\BookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,11 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/admin/cars/{car}/edit', [CarController::class, 'edit'])->name("admin_edit_car");
     Route::put('/admin/cars/{car}', [CarController::class, 'update'])->name("admin_update_car");
     Route::delete('/admin/cars/{car}', [CarController::class, 'destroy'])->name("admin_delete_car");
+
+    // admin book routes
+
+    Route::get('/admin/books/create', [BookController::class, 'create']) ->name('admin_create_book');
+    Route::post('/admin/books',[BookController::class, 'store']) ->name('admin_store_book');
 
 });
 //show registration form

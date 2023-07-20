@@ -122,7 +122,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="/admin/houses/create" class="nav-link bg-info">
+                                <a href="{{ route("admin_create_book") }}" class="nav-link bg-info">
                                     <p>Add Book</p>
                                 </a>
                             </li>
@@ -158,7 +158,7 @@
     <!-- DataTables -->
     <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
     <!-- bs-custome-file-input -->
-    <script src="./bs-custom-file-input//bs-custom-file-input.min.js"></script>
+    <script src="/bs-custom-file-input//bs-custom-file-input.min.js"></script>
     <script>
         $(function() {
             bsCustomFileInput.init();

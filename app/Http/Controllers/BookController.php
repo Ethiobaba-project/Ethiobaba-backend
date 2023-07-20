@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BookController extends Controller
 {
@@ -20,6 +21,10 @@ class BookController extends Controller
     public function create()
     {
         //
+        if (Auth::user()->is_super_admin != 1) {
+            abort(403);
+        }
+        return view('books.create');
     }
 
     /**
@@ -28,6 +33,18 @@ class BookController extends Controller
     public function store(Request $request)
     {
         //
+        $fieldForm = $request->validate([
+            'price' => ['required','numeric'],
+            'title' => ['required','string'],
+            'author' => ['required','string'],
+            'description' => ['required','string'],
+            'language' => ['required','string'],
+            'paper_back' => ['required','integer'],
+            'image' => ['required','image']
+        ]);
+        $fieldForm ['image'] = $request->file('image')->store('book_images','public');
+        auth()->user()->book()->create($fieldForm) ;
+        return redirect()->route('admin_home')->with('message', 'Book has been saved successfully!');
     }
 
     /**
