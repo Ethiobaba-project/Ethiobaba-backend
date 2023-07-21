@@ -16,7 +16,7 @@
                                         <div class="form-group">
                                             <label>Title</label>
                                             <input type="text" name="title" class="form-control"
-                                                placeholder="Manufacturer" value="{{ old('title') }}" required>
+                                                placeholder="Title" value="{{ old('title') }}" required>
                                             @error('title')
                                                 <p class="text-danger small mt-1">{{ $message }}</p>
                                             @enderror
@@ -24,7 +24,7 @@
                                         <div class="form-group">
                                             <label>Author</label>
                                             <input type="text" name="author" class="form-control"
-                                                placeholder="Manufacturer" value="{{ old('author') }}" required>
+                                                placeholder="Author" value="{{ old('author') }}" required>
                                             @error('author')
                                                 <p class="text-danger small mt-1">{{ $message }}</p>
                                             @enderror
@@ -32,14 +32,14 @@
                                         <div class="form-group">
                                             <label>Language</label>
                                             <input type="text" name="language" class="form-control"
-                                                placeholder="Manufacturer" value="{{ old('language') }}" required>
+                                                placeholder="Language" value="{{ old('language') }}" required>
                                             @error('language')
                                                 <p class="text-danger small mt-1">{{ $message }}</p>
                                             @enderror
                                         </div>
                                         <div class="form-group">
                                             <label>Description</label>
-                                            <textarea class="form-control" name="description" rows="4" placeholder="Enter about the car..." required>{{ old('description') }}</textarea>
+                                            <textarea class="form-control" name="description" rows="4" placeholder="Enter about the book..." required>{{ old('description') }}</textarea>
                                             @error('description')
                                                 <p class="text-danger small mt-1">{{ $message }}</p>
                                             @enderror
@@ -57,7 +57,7 @@
                                         <div class="form-group">
                                             <label>Paper Back</label>
                                             <input type="number" name="paper_back" class="form-control"
-                                                placeholder="Price" value="{{ old('paper_back') }}" required>
+                                                placeholder="Paper Back" value="{{ old('paper_back') }}" required>
                                             @error('paper_back')
                                                 <p class="text-danger small mt-1">{{ $message }}</p>
                                             @enderror
