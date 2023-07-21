@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use LDAP\Result;
 use App\Models\Car;
 use App\Models\CarImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\StoreCarRequest;
 use App\Http\Requests\UpdateCarRequest;
 
 class CarController extends Controller
@@ -39,7 +37,6 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
         // Validate the form data
         $formData = $request->validate([
             'manufacturer' => 'required',
@@ -54,40 +51,20 @@ class CarController extends Controller
             'location' => 'required',
             'description' => 'nullable|required',
         ]);
-        // $formFields['user_id'] = auth()->id();
-        // Car::create($formData);
 
-
-
-
-        // Create a new Car instance and save it
-        $car = new Car;
-        $car->manufacturer = $formData['manufacturer'];
-        $car->model = $formData['model'];
-        $car->year = $formData['year'];
-        $car->mileage = $formData['mileage'];
-        $car->price = $formData['price'];
-        $car->color = $formData['color'];
-        $car->body_type = $formData['body_type'];
-        $car->fuel_type = $formData['fuel_type'];
-        $car->transmission = $formData['transmission'];
-        $car->location = $formData['location'];
-        $car->description = $formData['description'];
-        $car->save();
+        $car = auth()->user()->car()->create($formData);
         // Upload and associate the images with the car
         if ($request->hasFile('photo')) {
             foreach ($request->file('photo') as $image) {
-                $imagePath = $image->store('car_images', 'public');
-                $carImage = new CarImage;
-                $carImage->car_id = $car->id;
-                $carImage->image_path = $imagePath;
-                $carImage->save();
+                $image_path = $image->store('car_images','public');
+                CarImage::create([
+                    "car_id" => $car->id,
+                    "image_path" => $image_path
+                ]);
             }
         }
 
-        return redirect('/admin/cars/show')->with('message', 'Car has been saved successfully!');
-        // Redirect or return a response as needed
-        // return redirect()->back()->with('message', 'Car has been saved successfully!');
+        return redirect()->route('admin_show_car')->with('message', 'Car has been saved successfully!');
     }
 
     /**
@@ -120,6 +97,17 @@ class CarController extends Controller
     public function edit(Car $car)
     {
         //
+        if (Auth::user()->is_super_admin != 1) {
+            abort(403);
+        }
+
+        // dd($car->images);
+
+        return view("cars.edit",[
+            "car" => $car,
+            "images" => $car->images
+        ]);
+        
     }
 
     /**

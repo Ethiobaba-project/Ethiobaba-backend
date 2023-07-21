@@ -6,17 +6,17 @@
                 <div class="card card-default mt-5">
                     <div class="card">
                         <div class="card-header bg-primary">
-                            <h3 class="card-title">Add new Car for sell </h3>
+                            <h3 class="card-title">Edit Car for sell </h3>
                         </div>
                         <div class="card-body ">
-                            <form method="POST" enctype="multipart/form-data" action="{{ route("admin_store_car") }}">
+                            <form method="POST" enctype="multipart/form-data" action="#">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Manufacturer</label>
                                             <input type="text" name="manufacturer" class="form-control"
-                                                placeholder="Manufacturer" value="{{ old('manufacturer') }}" required>
+                                                placeholder="Manufacturer" value="{{ $car->manufacturer }}" required>
                                             @error('manufacturer')
                                                 <p class="text-danger small mt-1">{{ $message }}</p>
                                             @enderror
@@ -24,7 +24,7 @@
                                         <div class="form-group">
                                             <label>Model</label>
                                             <input type="text" name="model" class="form-control"
-                                                placeholder="Model" value="{{ old('model') }}" required>
+                                                placeholder="Model" value="{{ $car->model }}" required>
                                             @error('model')
                                                 <p class="text-danger small mt-1">{{ $message }}</p>
                                             @enderror
@@ -32,7 +32,7 @@
                                         <div class="form-group">
                                             <label>Year</label>
                                             <input type="number" name="year" class="form-control" placeholder="Year"
-                                                value="{{ old('year') }}" required>
+                                                value="{{ $car->year }}" required>
                                             @error('year')
                                                 <p class="text-danger small mt-1">{{ $message }}</p>
                                             @enderror
@@ -40,7 +40,7 @@
                                         <div class="form-group">
                                             <label>Kilo meter</label>
                                             <input type="number" name="mileage" class="form-control"
-                                                placeholder="Kilo meter" value="{{ old('mileage') }}" required>
+                                                placeholder="Kilo meter" value="{{ $car->mileage }}" required>
                                             @error('mileage')
                                                 <p class="text-danger small mt-1">{{ $message }}</p>
                                             @enderror
@@ -48,7 +48,7 @@
                                         <div class="form-group">
                                             <label>Location</label>
                                             <input type="text" step="0.01" name="location" class="form-control"
-                                                placeholder="location" value="{{ old('location') }}" required>
+                                                placeholder="location" value="{{ $car->location }}" required>
                                             @error('location')
                                                 <p class="text-danger small mt-1">{{ $message }}</p>
                                             @enderror
@@ -56,7 +56,7 @@
                                         <div class="form-group">
                                             <label>Price</label>
                                             <input type="number" step="0.01" name="price" class="form-control"
-                                                placeholder="Price" value="{{ old('price') }}" required>
+                                                placeholder="Price" value="{{ $car->price }}" required>
                                             @error('price')
                                                 <p class="text-danger small mt-1">{{ $message }}</p>
                                             @enderror
@@ -64,7 +64,7 @@
                                         <div class="form-group">
                                             <label>Color</label>
                                             <input type="text" name="color" class="form-control"
-                                                placeholder="Color" value="{{ old('color') }}" required>
+                                                placeholder="Color" value="{{ $car->color }}" required>
                                             @error('color')
                                                 <p class="text-danger small mt-1">{{ $message }}</p>
                                             @enderror
@@ -75,7 +75,7 @@
                                         <div class="form-group">
                                             <label>Body Type</label>
                                             <input type="text" name="body_type" class="form-control"
-                                                placeholder="Body Type" value="{{ old('body_type') }}" required>
+                                                placeholder="Body Type" value="{{ $car->body_type }}" required>
                                             @error('body_type')
                                                 <p class="text-danger small mt-1">{{ $message }}</p>
                                             @enderror
@@ -83,7 +83,7 @@
                                         <div class="form-group">
                                             <label>Fuel Type</label>
                                             <select name="fuel_type" class="form-control" required>
-                                                <option value="">Select Fuel Type</option>
+                                                <option value="">{{ $car->fuel_type }}</option>
                                                 <option value="Gasoline"
                                                     {{ old('fuel_type') === 'Gasoline' ? 'selected' : '' }}>Gasoline
                                                 </option>
@@ -101,7 +101,7 @@
                                         <div class="form-group">
                                             <label>Transmission</label>
                                             <select name="transmission" class="form-control" required>
-                                                <option value="">Select Transmission</option>
+                                                <option value="">{{ $car->transmission }}</option>
                                                 <option value="Automatic"
                                                     {{ old('transmission') === 'Automatic' ? 'selected' : '' }}>
                                                     Automatic</option>
@@ -115,14 +115,23 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Description</label>
-                                            <textarea class="form-control" name="description" rows="4" placeholder="Enter about the car..." required>{{ old('description') }}</textarea>
+                                            <textarea class="form-control" name="description" rows="4" placeholder="Enter about the car..." required>{{ $car->description }}</textarea>
                                             @error('description')
                                                 <p class="text-danger small mt-1">{{ $message }}</p>
                                             @enderror
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputFile">Images</label>
-                                            <div class="input-group">
+                                            <div div class="row">
+                                                @foreach ($images as $image)
+                                                <div class='col-md-4 col-lg-3 col-sm-6'>
+                                                        <div class='product-image-thumb'>
+                                                            <img src={{ asset('storage/'.$image->image_path) }} alt='Product Image' class='img-fluid img-thumbnail'>
+                                                        </div>
+                                                </div>
+                                                @endforeach
+                                            </div>
+                                            <div class="input-group mt-2">
                                                 <div class="custom-file">
                                                     <input type="file" name="photo[]" class="custom-file-input form-control-file" value="{{old('photo')}}" required multiple id="exampleFormControlFile">
                                                     <label class="custom-file-label" for="exampleInputFile">Choose file</label>
@@ -136,8 +145,8 @@
                                 </div>
 
                                 <div class="display-flex">
-                                    <button name="addcar" type="submit"
-                                        class="btn btn-primary mb-3 mr-3 btn-md float-right">Add</button>
+                                    <button name="updatecar" type="submit"
+                                        class="btn btn-primary mb-3 mr-3 btn-md float-right">Update</button>
                                 </div>
                             </form>
                             <!-- /.row -->

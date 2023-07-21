@@ -78,12 +78,12 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="/admin/cars/create" class="nav-link bg-info">
+                                <a href="{{ route("admin_create_car") }}" class="nav-link bg-info">
                                     <p>Add car</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/cars/show" class="nav-link bg-info">
+                                <a href="{{ route("admin_show_car") }}" class="nav-link bg-info">
                                     <p>View cars</p>
                                 </a>
                             </li>
@@ -100,12 +100,12 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="/admin/houses/create" class="nav-link bg-info">
+                                <a href="{{ route("admin_create_house") }}" class="nav-link bg-info">
                                     <p>Add house</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/show" class="nav-link bg-info">
+                                <a href="{{ route("admin_show_house") }}" class="nav-link bg-info">
                                     <p>View house</p>
                                 </a>
                             </li>
