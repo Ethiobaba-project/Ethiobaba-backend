@@ -9,8 +9,9 @@
                             <h3 class="card-title">Edit Car for sell </h3>
                         </div>
                         <div class="card-body ">
-                            <form method="POST" enctype="multipart/form-data" action="#">
+                            <form method="POST" enctype="multipart/form-data" action="{{ route('admin_update_car', $car->id) }}">
                                 @csrf
+                                @method('put')
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -133,7 +134,7 @@
                                             </div>
                                             <div class="input-group mt-2">
                                                 <div class="custom-file">
-                                                    <input type="file" name="photo[]" class="custom-file-input form-control-file" value="{{old('photo')}}" required multiple id="exampleFormControlFile">
+                                                    <input type="file" name="photo[]" class="custom-file-input form-control-file" value="{{old('photo')}}"  multiple id="exampleFormControlFile">
                                                     <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                                     @error('photo')
                                                         <p class="text-danger small mt-1">{{ $message }}</p>

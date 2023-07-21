@@ -7,6 +7,7 @@ use App\Models\CarImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\UpdateCarRequest;
+use Illuminate\Support\Facades\Storage;
 
 class CarController extends Controller
 {
@@ -50,7 +51,12 @@ class CarController extends Controller
             'transmission' => 'required',
             'location' => 'required',
             'description' => 'nullable|required',
+            'photo' => "required",
+            'photo.*' => "image",
         ]);
+
+        
+        unset($formData['photo']);
 
         $car = auth()->user()->car()->create($formData);
         // Upload and associate the images with the car
@@ -113,9 +119,42 @@ class CarController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCarRequest $request, Car $car)
+    public function update(Request $request, Car $car)
     {
         //
+        $formData = $request->validate([
+            'manufacturer' => 'required',
+            'model' => 'required',
+            'year' => 'required|integer',
+            'mileage' => 'required|integer',
+            'price' => 'required|numeric',
+            'color' => 'required',
+            'body_type' => 'required',
+            'fuel_type' => 'required',
+            'transmission' => 'required',
+            'location' => 'required',
+            'description' => 'nullable|required',
+            'photo.*' => "image"
+        ]);
+
+        unset($formData['photo']);
+
+        if ($request->hasFile('photo')){
+            foreach ($car->images as $image){
+                Storage::disk('public')->delete($image->image_path);
+                $image->delete();
+            }
+            foreach ($request->file('photo') as $image) {
+                $image_path = $image->store('car_images','public');
+                CarImage::create([
+                    "car_id" => $car->id,
+                    "image_path" => $image_path
+                ]);
+             }
+        }
+        $car->update($formData);
+        return redirect()->route('admin_home')->with('message', 'car has been saved successfully!');
+
     }
 
     /**
@@ -124,5 +163,13 @@ class CarController extends Controller
     public function destroy(Car $car)
     {
         //
+        foreach ($car->images as $image){
+            Storage::disk('public')->delete($image->image_path);
+            $image->delete();
+        }
+
+        $car->delete();
+        return redirect()->route('admin_home')->with('message', 'car has been deleted successfully!');
+
     }
 }

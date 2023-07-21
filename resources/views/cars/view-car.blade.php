@@ -41,7 +41,7 @@
                                                     <a href="/admin/cars/{{ $car->id }}/edit" class="btn btn-info mr-3 btn-sm rounded">
                                                         <i class="fas fa-edit"></i> Edit
                                                     </a>
-                                                    <form method="POST" action="/admin/cars/{{ $car->id }}">
+                                                    <form method="POST" action="{{ route("admin_delete_car", $car->id) }}">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button class="btn btn-danger mr-3 btn-sm">
