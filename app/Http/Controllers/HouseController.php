@@ -72,7 +72,7 @@ class HouseController extends Controller
             $formFields['photo'] = $request->file('photo')->store('houses_photo', 'public');
         }
 
-        $formFields['user_id'] = auth()->id();
+        // $formFields['user_id'] = auth()->id();
 
         House::create($formFields);
 

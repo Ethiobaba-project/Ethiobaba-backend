@@ -152,8 +152,9 @@ class CarController extends Controller
                 ]);
              }
         }
+        // dd($formData);
         $car->update($formData);
-        return redirect()->route('admin_home')->with('message', 'car has been saved successfully!');
+        return redirect()->route('admin_home')->with('message', 'car has been updated successfully!');
 
     }
 
