@@ -9,7 +9,7 @@
                             <h3 class="card-title">Edit </h3>
                         </div>
                         <div class="card-body ">
-                            <form method="POST" enctype="multipart/form-data" action="/admin/houses/{{ $house->id }}">
+                            <form method="POST" enctype="multipart/form-data" action="{{ route('admin_update_house', $house->id) }}">
                                 @csrf
                                 @method('PUT')
                                 <div class="row">
@@ -39,13 +39,13 @@
                                             @enderror
                                         </div>
                                         <div class="form-group">
-                                            <label>Square Feet</label>
-                                            <input type="number" name="squer_feet" class="form-control"
-                                                value="{{ $house->squer_feet }}" >
-                                            @error('squer_feet')
+                                            <label>Description</label>
+                                            <textarea class="form-control" name="description" rows="4" placeholder="Enter about the Drug..." >{{ $house->description }}</textarea>
+                                            @error('description')
                                                 <p class="text-danger small mt-1">{{ $message }}</p>
                                             @enderror
                                         </div>
+                                        
                                     </div>
                                     <!-- /.col -->
                                     <div class="col-md-6">
@@ -66,20 +66,31 @@
                                             @enderror
                                         </div>
                                         <div class="form-group">
-                                            <label>Description</label>
-                                            <textarea class="form-control" name="description" rows="4" placeholder="Enter about the Drug..." >{{ $house->description }}</textarea>
-                                            @error('description')
+                                            <label>Square Feet</label>
+                                            <input type="number" name="squer_feet" class="form-control"
+                                                value="{{ $house->squer_feet }}" >
+                                            @error('squer_feet')
                                                 <p class="text-danger small mt-1">{{ $message }}</p>
                                             @enderror
                                         </div>
                                         <div class="form-group">
-                                            <div class="input-group">
+                                            <label for="exampleInputFile">Images</label>
+                                            <div div class="row">
+                                                @foreach ($images as $image)
+                                                <div class='col-md-4 col-lg-3 col-sm-6'>
+                                                        <div class='product-image-thumb'>
+                                                            <img src={{ asset('storage/'.$image->image_path) }} alt='Product Image' class='img-fluid img-thumbnail'>
+                                                        </div>
+                                                </div>
+                                                @endforeach
+                                            </div>
+                                            <div class="input-group mt-2">
                                                 <div class="custom-file">
-                                                    <label for="exampleInputFile">Images</label>
-                                                    <input type="file" name="photo"  multiple
-                                                        class="form-control-file" id="exampleFormControlFile1">
-                                                    <img src="{{ $house->photo ? asset('storage/' . $house->photo) : asset('/images/no-image.png') }}"
-                                                    class="img-fluid mr-2 mb-2" style="width: 78px; height: auto;" alt="Product Image">
+                                                    <input type="file" name="photo[]" class="custom-file-input form-control-file" value="{{old('photo')}}"  multiple id="exampleFormControlFile">
+                                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                                    @error('photo')
+                                                        <p class="text-danger small mt-1">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                             </div>
                                         </div>
@@ -88,7 +99,7 @@
 
                                 </div>
                                 <div class="display-flex">
-                                    <button name="addhouse" type="submit"
+                                    <button name="updatehouse" type="submit"
                                         class="btn btn-primary mb-3 mr-3 btn-md float-right">Update</button>
                                 </div>
                             </form> <!-- /.row -->

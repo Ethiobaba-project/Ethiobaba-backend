@@ -83,7 +83,7 @@ class User extends Authenticatable
     }
 
     // Relationship With House
-    public function houses() {
+    public function house() {
         return $this->hasMany(House::class, 'user_id');
     }
 

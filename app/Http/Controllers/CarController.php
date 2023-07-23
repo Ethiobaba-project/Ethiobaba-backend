@@ -6,7 +6,6 @@ use App\Models\Car;
 use App\Models\CarImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\UpdateCarRequest;
 use Illuminate\Support\Facades\Storage;
 
 class CarController extends Controller
@@ -146,15 +145,11 @@ class CarController extends Controller
             }
             foreach ($request->file('photo') as $image) {
                 $image_path = $image->store('car_images','public');
-                CarImage::create([
-                    "car_id" => $car->id,
-                    "image_path" => $image_path
-                ]);
+                $car->images()->create(['image_path'=>$image_path]);
              }
         }
         $car->update($formData);
-        return redirect()->route('admin_home')->with('message', 'car has been saved successfully!');
-
+        return back()->with('message', 'Car updated successfully!');
     }
 
     /**

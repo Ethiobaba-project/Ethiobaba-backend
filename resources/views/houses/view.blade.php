@@ -20,8 +20,6 @@
                                             <th>Squer Feet</th>
                                             <th>location</th>
                                             <th>Action</th>
-
-
                                         </tr>
                                     </thead>
                                     @foreach ($houses as $house)
@@ -36,10 +34,10 @@
                                                 <td>{{ $house->location }}</td>
                                                 <td>
                                                     <div class="btn-group btn-group-sm">
-                                                        <a href='/admin/houses/{{ $house->id }}/edit'
+                                                        <a href='{{ route('admin_edit_house', $house->id) }}'
                                                             class="btn btn-info mr-3 btn-sm rounded"><i class="fas fa-edit"></i>Edit</a>
 
-                                                        <form method="POST" action="/admin/houses/{{ $house->id }}">
+                                                        <form method="POST" action="{{ route('admin_delete_house', $house->id) }}">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button class="btn btn-danger mr-3 btn-sm">

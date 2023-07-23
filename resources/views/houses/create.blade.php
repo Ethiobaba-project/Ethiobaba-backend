@@ -9,7 +9,7 @@
                             <h3 class="card-title">Add new Home for sell </h3>
                         </div>
                         <div class="card-body ">
-                            <form method="POST" enctype="multipart/form-data" action="/admin/houses">
+                            <form method="POST" enctype="multipart/form-data" action="{{ route('admin_store_house') }}">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6">
@@ -38,13 +38,13 @@
                                             @enderror
                                         </div>
                                         <div class="form-group">
-                                            <label>Square Feet</label>
-                                            <input type="number" name="squer_feet" class="form-control"
-                                                placeholder="{{ old('squer_feet') }}" required>
-                                            @error('squer_feet')
+                                            <label>Description</label>
+                                            <textarea class="form-control" name="description" rows="4" placeholder="Enter about the Drug..." required>{{ old('description') }}</textarea>
+                                            @error('description')
                                                 <p class="text-danger small mt-1">{{ $message }}</p>
                                             @enderror
                                         </div>
+                                        
                                     </div>
                                     <!-- /.col -->
                                     <div class="col-md-6">
@@ -65,19 +65,22 @@
                                             @enderror
                                         </div>
                                         <div class="form-group">
-                                            <label>Description</label>
-                                            <textarea class="form-control" name="description" rows="4" placeholder="Enter about the Drug..." required>{{ old('description') }}</textarea>
-                                            @error('description')
+                                            <label>Square Feet</label>
+                                            <input type="number" step="0.01" name="squer_feet" class="form-control"
+                                                placeholder="{{ old('squer_feet') }}" required>
+                                            @error('squer_feet')
                                                 <p class="text-danger small mt-1">{{ $message }}</p>
                                             @enderror
                                         </div>
                                         <div class="form-group">
+                                            <label for="exampleInputFile">Images</label>
                                             <div class="input-group">
                                                 <div class="custom-file">
-                                                    <label for="exampleInputFile">Images</label>
-                                                    <input type="file" name="photo" value="{{ old('photo') }}"
-                                                        required multiple class="form-control-file"
-                                                        id="exampleFormControlFile1">
+                                                    <input type="file" name="photo[]" class="custom-file-input form-control-file" value="{{old('photo')}}" required multiple id="exampleFormControlFile">
+                                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                                    @error('photo')
+                                                        <p class="text-danger small mt-1">{{ $message }}</p>
+                                                    @enderror
                                                 </div>
                                             </div>
                                         </div>

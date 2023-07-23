@@ -7,9 +7,7 @@ use App\Models\House;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Requests\StoreHouseRequest;
-use App\Http\Requests\UpdateHouseRequest;
-use Symfony\Component\HttpFoundation\Response;
+use App\Models\HouseImages;
 
 class HouseController extends Controller
 {
@@ -54,29 +52,36 @@ class HouseController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
         if (Auth::user()->is_super_admin != 1) {
             abort(403);
         }
-        $formFields = $request->validate([
-            'title' => 'required',
-            'price' => 'required',
-            'location' => 'required',
-            'squer_feet' => 'required',
-            'no_of_bedrooms' => 'required',
-            'no_of_bathrooms' => 'required',
-            'description' => 'required'
+        $formData = $request->validate([
+            'title' => 'required|string',
+            'price' => 'required|numeric',
+            'location' => 'required|string',
+            'squer_feet' => 'required|numeric',
+            'no_of_bedrooms' => 'required|integer',
+            'no_of_bathrooms' => 'required|integer',
+            'description' => 'required|string',
+            'photo' => 'required',
+            'photo.*' => 'image'
         ]);
 
+        unset($formData['photo']);
+
+        $house = auth()->user()->house()->create($formData);
+
+        // Upload and associate the images with the house
         if ($request->hasFile('photo')) {
-            $formFields['photo'] = $request->file('photo')->store('houses_photo', 'public');
+            foreach ($request->file('photo') as $image) {
+                $image_path = $image->store('house_images','public');
+                HouseImages::create([
+                    "house_id" => $house->id,
+                    "image_path" => $image_path
+                ]);
+            }
         }
-
-        $formFields['user_id'] = auth()->id();
-
-        House::create($formFields);
-
-        return redirect('/admin/show')->with('message', 'House created successfully!');
+        return redirect()->route('admin_home')->with('message', 'House created successfully!');
     }
 
     /**
@@ -92,13 +97,13 @@ class HouseController extends Controller
     /**
      * Display the specified resource for admin.
      */
-    public function show_house_admin(House $houses)
+    public function show_house_admin()
     {
         if (Auth::user()->is_super_admin != 1) {
             abort(403);
         }
 
-        return view('houses.view-house', [
+        return view('houses.view', [
             'houses' => House::latest()->filter(request(['search']))->paginate(5)
         ]);
     }
@@ -111,7 +116,11 @@ class HouseController extends Controller
         if (Auth::user()->is_super_admin != 1) {
             abort(403);
         }
-        return view('houses.edit-house', ['house' => $house]);
+        return view('houses.edit', [
+            'house' => $house,
+            'images' => $house->images
+        ]);
+
     }
 
     /**
@@ -119,30 +128,35 @@ class HouseController extends Controller
      */
     public function update(Request $request, House $house)
     {
-        // Make sure logged in user is owner
-        // if($listing->user_id != auth()->id()) {
-        //     abort(403, 'Unauthorized Action');
-        // }
+        
         if (Auth::user()->is_super_admin != 1) {
             abort(403);
         }
-
-        $formFields = $request->validate([
-            'title' => 'required',
-            'price' => 'required',
-            'location' => 'required',
-            'squer_feet' => 'required',
-            'no_of_bedrooms' => 'required',
-            'no_of_bathrooms' => 'required',
-            'description' => 'required'
+        $formData = $request->validate([
+            'title' => 'required|string',
+            'price' => 'required|numeric',
+            'location' => 'required|string',
+            'squer_feet' => 'required|numeric',
+            'no_of_bedrooms' => 'required|integer',
+            'no_of_bathrooms' => 'required|integer',
+            'description' => 'required|string',
+            'photo' => 'required',
+            'photo.*' => 'image'
         ]);
 
-        if ($request->hasFile('photo')) {
-            $formFields['photo'] = $request->file('photo')->store('houses_photo', 'public');
+        unset($formData['photo']);
+
+        if ($request->hasFile('photo')){
+            foreach ($house->images as $image){
+                Storage::disk('public')->delete($image->image_path);
+                $image->delete();
+            }
+            foreach ($request->file('photo') as $image) {
+                $image_path = $image->store('house_images','public');
+                $house->images()->create(["image_path"=>$image_path]);
+             }
         }
-
-        $house->update($formFields);
-
+        $house->update($formData);
         return back()->with('message', 'House updated successfully!');
     }
 
@@ -151,18 +165,19 @@ class HouseController extends Controller
      */
     public function destroy(House $house)
     {
-        // // Make sure logged in user is owner
-        // if($listing->user_id != auth()->id()) {
-        //     abort(403, 'Unauthorized Action');
-        // }
+        
         if (Auth::user()->is_super_admin != 1) {
             abort(403);
         }
 
-        if ($house->photo && Storage::disk('public')->exists($house->photo)) {
-            Storage::disk('public')->delete($house->photo);
+
+        foreach ($house->images as $image){
+            Storage::disk('public')->delete($image->image_path);
+            $image->delete();
         }
+
         $house->delete();
-        return redirect('/admin/show')->with('message', 'house deleted successfully');
+        return back()->with('message', 'House has been deleted successfully!');
+
     }
 }
