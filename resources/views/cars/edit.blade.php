@@ -84,7 +84,7 @@
                                         <div class="form-group">
                                             <label>Fuel Type</label>
                                             <select name="fuel_type" class="form-control" required>
-                                                <option value="">{{ $car->fuel_type }}</option>
+                                                <option value="{{ $car->fuel_type }}">{{ $car->fuel_type }}</option>
                                                 <option value="Gasoline"
                                                     {{ old('fuel_type') === 'Gasoline' ? 'selected' : '' }}>Gasoline
                                                 </option>
@@ -102,7 +102,7 @@
                                         <div class="form-group">
                                             <label>Transmission</label>
                                             <select name="transmission" class="form-control" required>
-                                                <option value="">{{ $car->transmission }}</option>
+                                                <option value="{{ $car->transmission }}">{{ $car->transmission }}</option>
                                                 <option value="Automatic"
                                                     {{ old('transmission') === 'Automatic' ? 'selected' : '' }}>
                                                     Automatic</option>

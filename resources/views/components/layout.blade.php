@@ -76,7 +76,7 @@
                                     <i class="bi bi-door-closed"></i> Logout
                                 </button>
                             </form>
-                        </li>                        
+                        </li>
                     @else
                         <li class="nav-item">
                             <a href="/register" class="btn btn-outline-dark">Register</a>
@@ -91,10 +91,12 @@
         </div>
     </nav>
     <main>
+        <x-flash-message-user />
+
         {{ $slot }}
     </main>
     <!-- Footer-->
-    <footer class="py-5 bg-dark">
+    <footer class="py-3 bg-dark footer fixed-bottom bg-light">
         <div class="container">
             <p class="m-0 text-center text-white">Copyright &copy; Ethiobaba 2023</p>
         </div>
@@ -102,7 +104,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
     </script>
-    <x-flash-message-user />
+    <!-- Include the Alpine.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+
+
+    <script>
+        $(function() {
+            bsCustomFileInput.init();
+        });
+    </script>
 </body>
 
 </html>
