@@ -24,4 +24,11 @@ class Book extends Model
     public function user() {
         return $this->belongsTo(User::class);
     }
+    public function scopeFilter($query, array $filters)
+    {
+        if ($filters['search'] ?? null) {
+            $query->where('title', 'like', '%' . $filters['search'] . '%')
+                ->orWhere('author', 'like', '%' . $filters['search'] . '%');
+        }
+    }
 }

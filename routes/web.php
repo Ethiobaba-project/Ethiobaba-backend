@@ -19,11 +19,16 @@ use App\Http\Controllers\BookController;
 */
 //all house 
 Route::get('/', [HomePageController::class, 'index']);
-
 Route::get('/houses/{house}', [HouseController::class, 'show']);
 Route::get('/houses', [HouseController::class, 'index']);
+
+//view cars
 Route::get('/cars', [CarController::class, 'index']);
 Route::get('/cars/{car}', [CarController::class, 'show']);
+
+//view books
+Route::get('/books', [BookController::class, 'index']);
+Route::get('/books/{book}', [BookController::class,'show']);
 
 Route::middleware(['auth'])->group(function(){
     

@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+
 class BookController extends Controller
 {
     /**
@@ -14,6 +16,9 @@ class BookController extends Controller
     public function index()
     {
         //
+        return view('books.index', [
+            'books' => Book::latest()->filter(request(['search']))->paginate(8)
+        ]);
     }
 
     /**
@@ -52,9 +57,13 @@ class BookController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Book $book) 
     {
         //
+        return view('books.show', [
+            'book' => $book
+        ]);
+
     }
 
     /**

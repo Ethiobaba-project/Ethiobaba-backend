@@ -58,8 +58,8 @@
                             <li><a class="dropdown-item" href="/cars">For Rent</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="#!">Books</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/books">Books</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
                 </ul>
                 <ul class="navbar-nav ml-auto d-flex gap-3 ">
                     @auth
@@ -96,7 +96,7 @@
         {{ $slot }}
     </main>
     <!-- Footer-->
-    <footer class="py-3 bg-dark footer fixed-bottom bg-light">
+    <footer class="py-3 bg-dark footer bg-light">
         <div class="container">
             <p class="m-0 text-center text-white">Copyright &copy; Ethiobaba 2023</p>
         </div>
