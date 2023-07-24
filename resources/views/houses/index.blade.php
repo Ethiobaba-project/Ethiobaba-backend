@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="mt-6 p-4">
-            {{ $houses->links() }}
+            {{ $houses->links('pagination::bootstrap-4') }}
         </div>
     </x-layout>
 @endif

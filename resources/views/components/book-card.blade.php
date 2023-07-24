@@ -2,7 +2,7 @@
 
 <x-card>
     <!-- Product image -->
-    <img class="card-img-top" src="{{ $book->photo ? asset('storage/' . $book->photo) : asset('/images/no-image.png') }}"
+    <img class="card-img-top" src="{{ $book->image ? asset('storage/' . $book->image) : asset('/images/no-image.png') }}"
         alt="Book Image" />
     <!-- Product details -->
     <div class="card-body p-4">

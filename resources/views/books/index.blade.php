@@ -17,7 +17,7 @@
                 @endunless
             </div>
             <div class="mt-6 p-4">
-                {{ $books->links() }}
+                {{ $books->links('pagination::bootstrap-4') }}
             </div>
         </div>
     </x-layout>
