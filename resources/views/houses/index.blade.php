@@ -8,9 +8,10 @@
         @include('partials._search')
         <div class="container px-4 px-lg-5 mt-5">
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                @dd($images)
                 @unless (count($houses) == 0)
                     @foreach ($houses as $house)
-                        <x-house-card :house="$house" />
+                        <x-house-card :[house="$house", image_path = "$images"]/>
                     @endforeach
                 @else
                     <p>There are no houses available.</p>

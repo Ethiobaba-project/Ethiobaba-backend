@@ -18,8 +18,6 @@ class HouseController extends Controller
     {
         return view('houses.index', [
             'houses' => House::latest()->filter(request(['search']))->paginate(8),
-            'images' => $house->images
-
         ]);
        
     }

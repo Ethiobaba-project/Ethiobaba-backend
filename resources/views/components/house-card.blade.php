@@ -2,7 +2,7 @@
 <x-card>
     <!-- Product image-->
     <img class="card-img-top"
-        src="{{ $house->photo ? asset('storage/' . $house->photo) : asset('/images/no-image.png') }}" alt="..." />
+        src="{{ $house->images ? asset('storage/' . $house->images[0]->image_path) : asset('/images/no-image.png') }}" alt="..." />
     {{-- @foreach ($images as $image)
         <div class='col-md-4 col-lg-3 col-sm-6'>
             <div class='product-image-thumb'>

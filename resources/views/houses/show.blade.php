@@ -4,9 +4,20 @@
     <section class="">
         <div class="container px-4 px-lg-5 my-5">
             <div class="row gx-4 gx-lg-5 align-items-center">
-                <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0"
-                        src="{{ $house->photo ? asset('storage/' . $house->photo) : asset('/images/no-image.png') }}"
-                        alt="..." /></div>
+                        <div class="col-md-6">
+                            <img class="card-img-top mb-5 mb-md-0"
+                                src="{{ $house->images ? asset('storage/' . $house->images[0]->image_path) : asset('/images/no-image.png') }}"
+                                alt="..." />
+                                <div div class="row mt-3">
+                                    @foreach ($house->images as $image)
+                                    <div class='col-md-4 col-lg-3 col-sm-6'>
+                                            <div class='product-image-thumb'>
+                                                <img src={{ asset('storage/'.$image->image_path) }} alt='Product Image' class='img-fluid img-thumbnail'>
+                                            </div>
+                                    </div>
+                                    @endforeach
+                                </div>
+                        </div>
                         <div class="col-md-6">
                             <div class="mb-2">
                                 <h6 class="small">Code: {{ $house->id + 100 }}</h6>
