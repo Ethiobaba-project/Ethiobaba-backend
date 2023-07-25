@@ -16,7 +16,7 @@ class HomePageController extends Controller
     public function index()
     {
         return view('index', [
-            'houses' => House::latest()->filter(request(['search']))->paginate(6)
+            'houses' => House::latest()->filter(request(['search']))->paginate(8)
             
         ]);
         //
