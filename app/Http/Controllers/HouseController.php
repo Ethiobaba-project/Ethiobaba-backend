@@ -14,11 +14,14 @@ class HouseController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(House $house)
     {
         return view('houses.index', [
-            'houses' => House::latest()->filter(request(['search']))->paginate(8)
+            'houses' => House::latest()->filter(request(['search']))->paginate(8),
+            'images' => $house->images
+
         ]);
+       
     }
 
 

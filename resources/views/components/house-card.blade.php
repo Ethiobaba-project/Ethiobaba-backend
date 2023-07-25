@@ -3,6 +3,13 @@
     <!-- Product image-->
     <img class="card-img-top"
         src="{{ $house->photo ? asset('storage/' . $house->photo) : asset('/images/no-image.png') }}" alt="..." />
+    {{-- @foreach ($images as $image)
+        <div class='col-md-4 col-lg-3 col-sm-6'>
+            <div class='product-image-thumb'>
+                <img src={{ asset('storage/' . $image->image_path) }} alt='Product Image' class='img-fluid img-thumbnail'>
+            </div>
+        </div>
+    @endforeach --}}
     <!-- Product details-->
     <div class="card-body p-4">
         <div class="text-center">
