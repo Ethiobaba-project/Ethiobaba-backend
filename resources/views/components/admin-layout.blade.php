@@ -57,7 +57,10 @@
         <aside class="main-sidebar control-sidebar-dark">
             <div class="sidebar pt-3">
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <h2>Ethiobaba</h2>
+                    <a class="navbar-brand" href="/">
+                        <img class="img-fluid w-25" src="{{ asset('images/logo1.png') }}" alt="Logo" class="logo">
+                        <span class="fw-bold"> Ethiobaba</span>
+                    </a>
                 </div>
                 <!-- side bar menu -->
                 <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu"
