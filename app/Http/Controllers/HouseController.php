@@ -105,7 +105,7 @@ class HouseController extends Controller
         }
 
         return view('houses.view', [
-            'houses' => House::latest()->filter(request(['search']))->paginate(2)
+            'houses' => House::latest()->filter(request(['search']))->paginate(10)
         ]);
     }
 
